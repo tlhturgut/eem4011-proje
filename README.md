@@ -1,13 +1,13 @@
-# eem4011-proje
-EEM4011 Proje: Epileptik Nöbet Tespiti ve Sinyal Analizi
-Bu depo, tıbbi sinyaller üzerinden anormallik tespiti (z > 3 kuralı) ve makine öğrenmesi algoritmaları kullanılarak epileptik nöbet pencerelerinin sınıflandırılması projesini içermektedir.
+# Epilepsi Nöbeti Tahmini için EEG Zaman Serisi Analizi
 
-Veri Seti
-Veri seti boyutu nedeniyle bu depoya eklenmemiştir. Veri setine buradan ulaşabilirsiniz: [VERİ SETİ LİNKİNİ BURAYA YAZ]
+Bu proje, EEM4011 Biyomedikal Programlama dersi kapsamında geliştirilmiştir.
 
-Kodu Çalıştırma
-Proje Google Colab üzerinde geliştirilmiştir. Herhangi bir kurulum yapmadan aşağıdaki bağlantı üzerinden kodu tarayıcınızda inceleyebilir ve çalıştırabilirsiniz:
-👉 Proje Kodlarını Colab'da Açmak İçin Tıklayın
+**Veri Seti:** 
+Veri setinin boyutu nedeniyle dosyalar (.edf) bu depoya eklenmemiştir. Kod, çalıştırıldığında PhysioNet CHB-MIT Scalp EEG veritabanından ilgili kayıtları (`chb01_03`, `chb02_16` ve `chb03_01`) otomatik olarak indirmektedir.
+Veri seti linki: https://physionet.org/content/chbmit/1.0.0/
 
-Ana Sonuç
-Veri setindeki aşırı sınıf dengesizliği (Sınıf 1: Nöbet anlarının azınlıkta olması) nedeniyle değerlendirme metriği olarak Accuracy yerine F1-Skoru kullanılmış, modelin nadir ve kritik vakaları (Recall) kaçırmama performansı optimize edilmiştir.
+**Çalıştırma Adımları:**
+Kodlar Google Colab üzerinde yazılmıştır. Depodaki `.ipynb` dosyasını kendi Colab ortamınıza yükleyerek veya yerel bir Jupyter Notebook ortamında çalıştırabilirsiniz. Kod, gerekli olan `mne` kütüphanesini ilk hücrede otomatik olarak kurar.
+
+**Ana Sonuç:**
+Çizgi uzunluğu (line length) özniteliği ve z-skoru yöntemi kullanılarak hasta bazlı (leave-one-patient-out) ayrım ile ulaşılan ortalama genel baseline F1 skoru: **0.274**'tür (İyimser hastaya özel üst sınır: 0.519).
